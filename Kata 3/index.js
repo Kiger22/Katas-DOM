@@ -24,13 +24,13 @@ const ulCar = document.createElement("ul");
 const divCar = document.querySelector('[data-function="printHere"]');
 
 for (const car of cars) {
-  const li = createElement("li");
+  const li = document.createElement("li");
   li.textContent = car;
   ulCar.append(li);
 
 }
 
-divCar.append(ul);
+divCar.append(ulCar);
 
 /* 1.4 Crea dinamicamente en el html una serie de divs que contenga un elemento 
 h4 para el titulo y otro elemento img para la imagen. */
@@ -59,10 +59,31 @@ for (const countrie of Countries) {
 
 /* 1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último 
 elemento de la serie de divs. */
-const botom = createElement("bootom");
+const botonEliminar = document.createElement("button");
+botonEliminar.textContent = "Elimine el Ultimo";
 
+function eliminarUltimo() {
+  const divsToRemove = document.querySelectorAll("div");
+  divsToRemove[divsToRemove.length - 1].remove();
+}
+
+botonEliminar.addEventListener("click", eliminarUltimo);
+document.body.append(botonEliminar);
 
 /* 1.6 Basandote en el ejercicio anterior. Crea un botón para cada uno de los 
 divs que elimine ese mismo elemento del html.
  */
+const botEliminame = document.createElement("button");
+botEliminame.textContent = "Eliminame";
+
+const divsToRemoves = document.querySelectorAll("div");
+
+for (const divToRemoves of divsToRemoves) {
+  const botEliminame = document.createElement("button");
+  botEliminame.textContent = "Eliminame";
+
+  divsToRemoves.append(botEliminame);
+  botEliminame.onclick = () => divToRemoves.remove();
+
+}
 
